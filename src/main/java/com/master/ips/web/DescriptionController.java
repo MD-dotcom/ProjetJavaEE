@@ -100,7 +100,7 @@ public class DescriptionController {
 		return "formDepartement";
 	}
 	
-	@Secured(value={"ROLE_ADMIN","ROLE_TOURISTE"})
+	@Secured(value={"ROLE_ADMIN"})
 	@RequestMapping(value="/formAssocier")
     public String formAssocier() {
 		return "addCelebriteToMonument";
@@ -203,10 +203,20 @@ public class DescriptionController {
 			departement.delete(d);
 			 return "success";
 		}
+	    
+	    @Secured(value={"ROLE_ADMIN","ROLE_TOURISTE"})
+		@RequestMapping(value="/formDistance", method=RequestMethod.GET)
+		public String formDistance(String codeM, Model model) {
+			Monument mon=metier.findMonumentBycodeM(codeM);
+			model.addAttribute("distance", mon);
+			return "distance";
+		}
+		
     @Secured(value={"ROLE_ADMIN"})
     @RequestMapping(value="/distance")
     public String distance(@RequestParam String codeMA,@RequestParam String codeMB ) {
 		metier.getDistanceBetweenMonuments(codeMA, codeMB);
+		System.out.println("distance:" + metier.getDistanceBetweenMonuments(codeMA, codeMB)+ "cest bon");
 		 return "distance";
 	}
 

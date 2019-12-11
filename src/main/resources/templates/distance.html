@@ -16,21 +16,30 @@
 <div class="example-wrapper" >
 <div class="form-group row">
 
-<h6>Pour verifier la distance entre deux monuments: </h6>
+<h6>Pour verifier la distance entrez deux monuments: </h6>
 
-  <div class="col-xs-2">
-    
-    <input class="form-control" id="ex1" type="text" placeholder="saisir un monument" />
-  </div>
-  <div class="col-xs-3">
-   
-    <input class="form-control" id="ex2" type="text" placeholder="saisir un autre monument"/>
-  </div>
-  <div class="col-xs-4">
-    
-    <input class="form-control" id="ex3" type="text" placeholder="la distance est:"/>
-  </div>
 
+   <form class="form-inline my-2 my-lg-0"  th:action=@{/distance} method="get">
+      <input class="form-control mr-sm-2" type="text" name="codeM"  placeholder="code monument"/>
+       <input class="form-control mr-sm-2" type="text" name="codeM"  placeholder="un autre code monument"/>
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">calculer</button>
+    </form>
+  <table>  
+   <thead>
+    <tr th:action="@{/distance}">
+  
+      <td>la distance entre ces deux monument est</td>
+      
+    </tr>
+    </thead>
+ <tbody>
+    <tr th:if="${distance}">
+ 	
+ 	<td th:text="${distance.nomM}"></td>
+ 	
+ </tr>
+ </tbody>
+ </table>
 </div>
 </div>
 
