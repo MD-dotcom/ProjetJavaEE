@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8"/>
+<title>Mon appli de description des monuments</title>
+<link rel="stylesheet" type="text/css" href="https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.min.css" 
+ th:href="@{https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.min.css}" />
+</head>
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" th:href="@{/about}">About</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02" >
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" th:href="@{/gererMonument}">Gerer Monument</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/gererDepartement}"> Gerer departement</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" th:href="@{/gererCelebrite}"> Gerer celebrite</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" th:href="@{/login}"> Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/login?logout}"> Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/inscrire}"> S'inscrire</a>
+      </li>
+    
+    </ul>
+    </div>
+    
+   <div>
+     <form class="form-inline my-2 my-lg-0"  th:action=@{/chercherDepartement} method="get">
+      <input class="form-control mr-sm-2" type="text" name="dep"  placeholder="Search"/>
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+   
+        </div>
+</nav>
+
+<body>
+<div class="example-wrapper">
+<div class="list-group" >
+  
+  <a href="/formDepartement"  class="list-group-item list-group-item-action " >Ajouter un nouveau departement</a>
+  <a href="/listDepartement" class="list-group-item list-group-item-action ">liste des departements</a>
+  
+</div>
+</div>
+ 
+</body>
+</html>

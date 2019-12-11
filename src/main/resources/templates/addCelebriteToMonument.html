@@ -1,0 +1,86 @@
+<DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="template1">
+<head>
+<meta charset="UTF-8"/>
+<title>Mon appli de description des monuments</title>
+<link rel="stylesheet" type="text/css" href="https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.min.css" 
+ th:href="@{https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.min.css}" />
+
+<head>
+<meta charset="utf-8" />
+
+</head>
+  
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" th:href="@{/about}">About</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02" >
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item ">
+        <a class="nav-link" th:href="@{/gererMonument}">Gerer Monument</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/gererDepartement}"> Gerer departement</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" th:href="@{/gererCelebrite}"> Gerer celebrite</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" th:href="@{/login}"> Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/login?logout}"> Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/inscrire}"> S'inscrire</a>
+      </li>
+    
+    </ul>
+    </div>
+     
+    <div>
+     <form class="form-inline my-2 my-lg-0"  th:action=@{/chercherMonument} method="get">
+      <input class="form-control mr-sm-2" type="text" name="codeM"  placeholder="Search"/>
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+   
+   </div>
+   
+</nav>
+
+<div class="col-md-6 col-sm-6  col-xs-12 spacer col-md-offset-3 ">
+
+		<div class="panel panel-default">
+
+			<div class="panel-heading">Veuillez saisir le de la celebrite
+				et le code du Monument à associer:</div>
+			<div class="panel-body">
+
+				<form th:action="@{addCelebriteToMonument}"  method="post">
+					<div class="form-group">
+						<label class="control-label">Numero de la celebrite:</label> 
+						<input type="text" name="numCelebrite" class="form-control" /> 
+					</div>
+					<div class="form-group">
+						<label class="control-label">Code du Monument:</label> <input
+							type="text" name="CodeM" class="form-control" /> 
+					</div>
+
+					<div>
+						<button type="submit" class="btn btn-primary">Associer</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	 
+	 </html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Mon appli de description des monuments</title>
+<link rel="stylesheet" type="text/css" href="https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.min.css" 
+ th:href="@{https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.min.css}" />
+</head>
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+
+
+<div class="example-wrapper" >
+<div class="form-group row">
+
+<h6>Pour verifier la distance entre deux monuments: </h6>
+
+  <div class="col-xs-2">
+    
+    <input class="form-control" id="ex1" type="text" placeholder="saisir un monument" />
+  </div>
+  <div class="col-xs-3">
+   
+    <input class="form-control" id="ex2" type="text" placeholder="saisir un autre monument"/>
+  </div>
+  <div class="col-xs-4">
+    
+    <input class="form-control" id="ex3" type="text" placeholder="la distance est:"/>
+  </div>
+
+</div>
+</div>
+
+</html>

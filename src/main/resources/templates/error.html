@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8"/>
+<title>Mon appli de description des monuments</title>
+<link rel="stylesheet" type="text/css" href="https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.min.css" 
+ th:href="@{https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.min.css}" />
+
+</head>
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<body>
+<header th:replace="template1 :: header"></header> 
+<div class="example-wrapper">
+<div class="jumbotron"  >
+  <div class="display-3">
+  <h5>Vous n'avez pas les previlèges suffisants pour effectuer cette opération!</h5>
+  </div>
+ 
+</div>
+</div>
+</body>
+</html>
