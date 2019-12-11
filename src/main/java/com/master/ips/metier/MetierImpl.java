@@ -102,13 +102,13 @@ public class MetierImpl implements IMetier{
 	}
 
 	@Override
-	public float getDistanceBetweenMonuments(String codeMonA, String codeMonB) {
-		    float latMa = monumentRepository.getOne(codeMonA).getLatitude();
-			float longMa=monumentRepository.getOne(codeMonA).getLongitude();
-			float latMb=monumentRepository.getOne(codeMonB).getLatitude();
-			float longiMb = monumentRepository.getOne(codeMonB).getLongitude();
-		    float dist= (float) SloppyMath.haversinKilometers(latMa, longMa, latMb, longiMb);
-			return dist;
+	public float getDistanceBetweenMonuments(String codeMA, String codeMB) {
+		    float latMa = monumentRepository.getOne(codeMA).getLatitude();
+			float longMa=monumentRepository.getOne(codeMA).getLongitude();
+			float latMb=monumentRepository.getOne(codeMB).getLatitude();
+			float longiMb = monumentRepository.getOne(codeMB).getLongitude();
+		float distance= (float) SloppyMath.haversinKilometers(latMa, longMa, latMb, longiMb);
+			return distance;
 		}
 
 	@Override

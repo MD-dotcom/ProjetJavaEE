@@ -34,8 +34,7 @@ import com.master.ips.metier.IMetier;
 
 @Controller
 public class DescriptionController {
-	@Autowired(required=false)
-	private Monument mon;
+	
 	@Autowired
 	private MonumentRepository monument;
 	@Autowired
@@ -204,20 +203,20 @@ public class DescriptionController {
 			 return "success";
 		}
 	    
+	  
 	    @Secured(value={"ROLE_ADMIN","ROLE_TOURISTE"})
-		@RequestMapping(value="/formDistance", method=RequestMethod.GET)
-		public String formDistance(String codeM, Model model) {
-			Monument mon=metier.findMonumentBycodeM(codeM);
-			model.addAttribute("distance", mon);
+		@RequestMapping(value="/formDistance")
+		public String formdistance() {
 			return "distance";
 		}
-		
-    @Secured(value={"ROLE_ADMIN"})
-    @RequestMapping(value="/distance")
-    public String distance(@RequestParam String codeMA,@RequestParam String codeMB ) {
-		metier.getDistanceBetweenMonuments(codeMA, codeMB);
-		System.out.println("distance:" + metier.getDistanceBetweenMonuments(codeMA, codeMB)+ "cest bon");
-		 return "distance";
+	    
+    @Secured(value={"ROLE_ADMIN","ROLE_TOURISTE"})
+    @RequestMapping(value="/distance", method=RequestMethod.GET)
+    public String distance(Model model,String codeMA, String codeMB ) {
+    
+		float distance =metier.getDistanceBetweenMonuments(codeMA, codeMB);
+		model.addAttribute("distance", distance);
+				 return "distance";
 	}
 
 	@Secured(value={"ROLE_ADMIN","ROLE_TOURISTE"})

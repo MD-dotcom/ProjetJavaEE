@@ -20,7 +20,7 @@ public interface IMetier {
 	public void deleteMonument(String codeM);
 	public Monument updateMonument(Monument n);
 	public void addMonumentToLieu(String codeM, String codeInsee);
-	public float getDistanceBetweenMonuments(String nomMonA,String nomMonB);
+	public float getDistanceBetweenMonuments(String nomMA,String nomMB);
 	
 	
 	//departement

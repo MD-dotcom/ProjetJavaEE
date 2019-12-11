@@ -11,35 +11,79 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <a class="navbar-brand" th:href="@{/about}">About</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarColor02" >
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" th:href="@{/gererMonument}">Gerer Monument</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/gererDepartement}"> Gerer departement</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" th:href="@{/gererCelebrite}"> Gerer celebrite</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" th:href="@{/login}"> Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/login?logout}"> Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/inscrire}"> S'inscrire</a>
+      </li>
+    
+    </ul>
+    </div>
+    
+   <div>
+     <form class="form-inline my-2 my-lg-0"  th:action=@{/chercherMonument} method="get">
+      <input class="form-control mr-sm-2" type="text" name="codeM"  placeholder="Search"/>
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+   
+        </div>
+</nav>
 
 <div class="example-wrapper" >
-<div class="form-group row">
+<div class="form-group row">pour calculer la distance entre deux monuments:
+</div>
+<div >
 
-<h6>Pour verifier la distance entrez deux monuments: </h6>
-
-
-   <form class="form-inline my-2 my-lg-0"  th:action=@{/distance} method="get">
-      <input class="form-control mr-sm-2" type="text" name="codeM"  placeholder="code monument"/>
-       <input class="form-control mr-sm-2" type="text" name="codeM"  placeholder="un autre code monument"/>
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">calculer</button>
-    </form>
-  <table>  
-   <thead>
-    <tr th:action="@{/distance}">
+   <form class="form-inline my-2 my-lg-0"  th:action="@{distance}" method="get">
+      <input class="form-control mr-sm-2" type="text" name="codeMA"  placeholder="entrez un code monument"/>
+    
+       <input class="form-control mr-sm-2" type="text" name="codeMB"  placeholder="entrez un autre code monument"/>
+       
+       <div>
+		<button type="submit" class="btn btn-primary">Calculer</button>
+	   </div>
+	   
+	<div class="example-wrapper">
+	  
+      <table >
   
-      <td>la distance entre ces deux monument est</td>
-      
-    </tr>
+  <thead>
+   
     </thead>
- <tbody>
-    <tr th:if="${distance}">
- 	
- 	<td th:text="${distance.nomM}"></td>
- 	
- </tr>
- </tbody>
- </table>
+    <tbody>
+     <tr th:if="${distance}" >
+     <td>la distance entre les deux monuments est: </td>
+     
+     <td  th:text="${distance}">  </td>
+     <td>km</td>
+     </tr>
+    </tbody>
+    
+      </table>
+      </div>
+    </form>
+    
 </div>
 </div>
 
