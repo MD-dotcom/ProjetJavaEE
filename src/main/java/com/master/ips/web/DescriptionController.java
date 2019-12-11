@@ -100,10 +100,15 @@ public class DescriptionController {
 		return "formDepartement";
 	}
 	
-	@Secured("ROLE_ADMIN")
-	@RequestMapping(value="/addCelebriteToMonument",method=RequestMethod.POST)
+	@Secured(value={"ROLE_ADMIN","ROLE_TOURISTE"})
+	@RequestMapping(value="/formAssocier")
+    public String formAssocier() {
+		return "addCelebriteToMonument";
+	}
 	
-	public String addCelebriteToMonument(@Valid Integer numCelebrite, String codeM){
+	@Secured("ROLE_ADMIN")
+	@RequestMapping(value="/addCelebriteToMonument")
+	public String addCelebriteToMonument(Model model, Integer numCelebrite, String codeM){
 		metier.addCelebriteToMonument(numCelebrite, codeM);
 		return "success";
 	}
