@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 
@@ -17,7 +19,10 @@ public class Celebrite implements Serializable {
 	private String nationalite;
 	private String epoque;
 	
-	@ManyToMany(mappedBy="celebrites")
+	@ManyToMany
+	@JoinTable(name="AssocieA", joinColumns=
+    @JoinColumn(name="numCelebrite"),
+    inverseJoinColumns=@JoinColumn(name="codeM"))
 	private List <Monument> monuments;
 
 	public Celebrite() {
